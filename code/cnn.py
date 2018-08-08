@@ -7,8 +7,13 @@ import numpy as np
 image_size = 28
 num_labels = 10
 num_channels = 1 # grayscale
+batch_size = 64
+patch_size = 5
+depth = 8
+num_hidden = 64
+beta = 0.0001
 
-
+#load the data
 mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 train_dataset = mnist.train.images
 train_labels = mnist.train.labels
@@ -17,6 +22,7 @@ valid_labels = mnist.validation.labels
 test_dataset = mnist.test.images
 test_labels = mnist.test.labels
 
+#reshape the data
 train_dataset = np.reshape(train_dataset,(len(train_dataset),28,28))
 valid_dataset = np.reshape(valid_dataset,(len(valid_dataset),28,28))
 test_dataset = np.reshape(test_dataset,(len(test_dataset),28,28))
@@ -42,11 +48,6 @@ def accuracy(predictions, labels):
           / predictions.shape[0])
 
 
-batch_size = 64
-patch_size = 5
-depth = 8
-num_hidden = 64
-beta = 0.0001
 
 graph = tf.Graph()
 
