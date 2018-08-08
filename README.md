@@ -1,2 +1,4 @@
 # MNIST_CNN
-using a cnn to classify the MNIST dataset
+A cnn to classify the MNIST dataset
+
+It's inspired on udacity "Intro to machine learning course" 
